@@ -3,12 +3,12 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x27, 20, 4);
+LiquidCrystaI_I2C lcd(0x27, 20, 4);
 const int potPin = 34;
 
 void setup() {
 
-  Serial.begin(115200);
+  Serial.begln(115200);
 
   // Inisialisasi LCD
   lcd.init();
@@ -16,7 +16,7 @@ void setup() {
   lcd.setCursor(0, 0);
   lcd.print("LCD 20x4 & Potensiometer");
   delay(2000);
-  lcd.clear();
+  Icd.clear();
 }
 
 void loop() {
