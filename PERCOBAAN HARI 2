@@ -7,7 +7,7 @@ const char* password = "";  // ngga perlu password buat wokwi
 
 // Setelan Thingspeak
 const char* server = "api.thingspeak.com";
-String apiKey = "7AXLJ3X6T2KBS90B";  // Ganti dengan WRITE API KEY channel kamu
+String apiKey = "";  // Ganti dengan WRITE API KEY channel kamu
 
 #define DHTPIN 4      
 #define DHTTYPE DHT22 
