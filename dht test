@@ -1,0 +1,40 @@
+#include <Adafruit_Sensor.h>
+#include <DHT.h>
+#include <DHT_U.h>
+
+// Tentukan pin yang digunakan untuk DHT21 dan tipe sensor
+#define DHTPIN D4
+#define DHTTYPE DHT21
+
+// Buat objek DHT
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  // Inisialisasi serial monitor
+  Serial.begin(9600);
+  Serial.println(F("DHT21 example!"));
+
+  // Inisialisasi sensor DHT
+  dht.begin();
+}
+
+void loop() {
+  // Baca suhu dan kelembaban
+  float temperature = dht.readTemperature();
+  float humidity = dht.readHumidity();
+
+  // Cek apakah pembacaan berhasil
+  if (isnan(temperature) || isnan(humidity)) {
+    Serial.println(F("Failed to read from DHT sensor!"));
+    return;
+  }
+
+  // Cetak hasil ke serial monitor
+  Serial.print(F("Humidity: "));
+  Serial.print(humidity);
+  Serial.print(F("%  Temperature: "));
+  Serial.print(temperature);
+  Serial.println(F("°C "));
+
+  delay(2000); // Tunggu 2 detik sebelum pembacaan berikutnya
+}
