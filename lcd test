@@ -1,0 +1,28 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// Buat objek LCD dengan alamat I2C 0x27 dan ukuran 20x4
+LiquidCrystal_I2C lcd(0x27, 20, 4);
+
+void setup() {
+  // Inisialisasi LCD
+  lcd.init();
+  lcd.backlight();
+  
+  // Tampilkan pesan di LCD
+  lcd.setCursor(0, 0);
+  lcd.print("Hello, World!");
+  
+  lcd.setCursor(0, 1);
+  lcd.print("LCD 20x4 Test");
+  
+  lcd.setCursor(0, 2);
+  lcd.print("Line 3");
+  
+  lcd.setCursor(0, 3);
+  lcd.print("Line 4");
+}
+
+void loop() {
+  // Tidak ada yang perlu dilakukan di loop
+}
