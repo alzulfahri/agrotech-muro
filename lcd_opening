@@ -1,0 +1,29 @@
+#include<LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27,20,4);
+void setup() {
+lcd.init();
+lcd.backlight();
+lcd.setCursor(3,0);
+lcd.print("Selamat Datang!");
+lcd.setCursor(0,1);
+lcd.print("WS Agroteknologi IoT");
+lcd.setCursor(3,3);
+lcd.print("-- UG MURO --");
+delay(5000);
+lcd.clear();
+delay(2000);
+}
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+lcd.setCursor(5,0);
+lcd.print("Monitoring");
+lcd.setCursor(0,1);
+lcd.print("Suhu   :");
+lcd.setCursor(0,2);
+lcd.print("K.Udara:");
+lcd.setCursor(0,3);
+lcd.print("K.Tanah:");
+delay(2000);
+}
