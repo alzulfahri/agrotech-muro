@@ -3,16 +3,16 @@
 #include <DHT_U.h>
 #include <LiquidCrystal_I2C.h>
 
-#define DHTPIN 26
+#define DHTPIN //masukkan pin sensor DHT
 #define DHTTYPE DHT21
-#define RELAY1_PIN 25 
-#define RELAY2_PIN 17  
-#define RELAY3_PIN 16
+#define RELAY1_PIN //masukkan pin relay 1 
+#define RELAY2_PIN //masukkan pin relay 2
+#define RELAY3_PIN //masukkan pin relay 3
 
 DHT dht(DHTPIN, DHTTYPE);
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 
-const int soilPin = 34;
+const int soilPin = ; //masukkan pin sensor soil moisture
 int soilValue;
 int soilPercentage;
 
