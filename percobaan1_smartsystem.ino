@@ -45,7 +45,7 @@ void loop() {
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
   int soilValue = analogRead(soilPin);                   // Membaca nilai analog dari sensor
-  int soilPercentage = map(soilValue, 4095, 0, 0, 100);  // Membalik rentang konversi
+  int soilPercentage = map(soilValue, 2048, 0, 0, 100);  // pakai mapping 2048 untuk 3v, 4095 untuk 5v
   soilPercentage = constrain(soilPercentage, 0, 100);
 
   // Display data on LCD
@@ -68,22 +68,24 @@ void loop() {
 
   lcd.setCursor(0, 3);
   lcd.print("K.Tanah: ");
-  lcd.setCursor(8,3);
-  lcd.print( soilPercentage);
+  lcd.setCursor(9, 3);
+  lcd.print("       "); //6 spasi
+  lcd.setCursor(9, 3);
+  lcd.print(soilPercentage);
   lcd.setCursor(17, 3);
   lcd.print("%");
 
   // Algoritma untuk menyalakan relay
   if (temperature > 24 && humidity > 70) {
-    digitalWrite(RELAY1_PIN, LOW); // Relay 1 menyala
+    digitalWrite(RELAY1_PIN, HIGH); // Relay 1 menyala
   } else {
-    digitalWrite(RELAY1_PIN, HIGH); // Relay 1 mati
+    digitalWrite(RELAY1_PIN, LOW); // Relay 1 mati
   }
 
   if (soilPercentage < 30) {
-    digitalWrite(RELAY3_PIN, LOW); // Relay 2 (pompa) menyala
+    digitalWrite(RELAY3_PIN, HIGH); // Relay 2 (pompa) menyala
   } else {
-    digitalWrite(RELAY3_PIN, HIGH); // Relay 2 (pompa) mati
+    digitalWrite(RELAY3_PIN, LOW); // Relay 2 (pompa) mati
   }
 
   delay(1000);
